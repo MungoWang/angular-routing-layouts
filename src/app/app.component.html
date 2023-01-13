@@ -1,0 +1,13 @@
+<ng-container [ngSwitch]="layout">
+  <!-- Alternativerly use the main layout as the default switch case -->
+  <ng-template #content>
+<router-outlet></router-outlet>
+  </ng-template>
+  <app-main-layout *ngSwitchCase="Layouts.Main">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+
+  </app-main-layout>
+  <app-footer-only-layout *ngSwitchCase="Layouts.FooterOnly">
+<ng-container *ngTemplateOutlet="content"></ng-container>
+  </app-footer-only-layout>
+</ng-container>
